@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Image Detection";
+}
+
+<h2>Upload Image</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="image" />
+    <button type="submit">Detect</button>
+</form>
+
+@if (ViewBag.Base64Image != null)
+{
+    <h3>Result:</h3>
+    <img src="data:image/jpeg;base64,@ViewBag.ImageBase64" />
+}
+
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red;">@ViewBag.Error</p>
+}
